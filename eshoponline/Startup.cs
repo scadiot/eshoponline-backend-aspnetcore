@@ -117,11 +117,8 @@ namespace eshoponline
                               .AllowAnyHeader()
                               .AllowCredentials());
 
-            
             app.UseAuthentication();
             app.UseAuthorization();
-            
-
 
             app.UseSwagger(c =>
             {
@@ -134,114 +131,9 @@ namespace eshoponline
                 x.RoutePrefix = string.Empty;
             });
 
-            app.UseRouting();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
             var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope();
             var context = serviceScope.ServiceProvider.GetRequiredService<EshoponlineContext>();
             context.Database.EnsureCreated();
-
-            //using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            //{
-            //    var context = serviceScope.ServiceProvider.GetRequiredService<EshoponlineContext>();
-            //    context.Database.EnsureCreated();
-
-            //    Address address = new Address()
-            //    {
-            //        FirstName = "",
-            //        LastName = "",
-            //        Street = "24 Ch. du Labrador",
-            //        Street2 = "",
-            //        City = "Paris",
-            //        PostalCode = "75000",
-            //        Country = "France",
-            //    };
-            //    context.Address.Add(address);
-            //    context.SaveChanges();
-
-            //    User user1 = new User()
-            //    {
-            //        Email = "basica0@hotmail.com",
-            //        FirstName = "Toto",
-            //        LastName = "tata",
-            //        PhoneNumber = "0645465456",
-            //        IsAdmin = true,
-            //        IsSuperAdmin = true,
-            //        AddressId = address.AddressId
-            //    };
-            //    context.Users.Add(user1);
-
-            //    User user2 = new User()
-            //    {
-            //        Email = "basica1@hotmail.com",
-            //        FirstName = "Toto",
-            //        LastName = "tata",
-            //        PhoneNumber = "0645465456",
-            //        IsAdmin = true,
-            //        IsSuperAdmin = true,
-            //        AddressId = address.AddressId
-            //    };
-            //    context.Users.Add(user2);
-            //    context.SaveChanges();
-
-            //    Category category = new Category()
-            //    {
-            //        Description = "tous les vélos",
-            //        Slug = "velo",
-            //        Name = "Vélos",
-            //    };
-            //    context.Categories.Add(category);
-
-            //    Category category2 = new Category()
-            //    {
-            //        Description = "tous les planches",
-            //        Slug = "velo",
-            //        Name = "planche",
-            //    };
-            //    context.Categories.Add(category2);
-            //    context.SaveChanges();
-
-            //    Brand brand1 = new Brand()
-            //    {
-            //        Name = "Mercedes",
-            //        LinkName = "mercos"
-            //    };
-            //    context.Brands.Add(brand1);
-            //    context.SaveChanges();
-
-            //    Product product = new Product()
-            //    {
-            //        Name = "Velo numéro 1",
-            //        MainCategoryId = category.CategoryId,
-            //        Summary = "un super vélo",
-            //        Description = "un super vélo electrique!",
-            //        Slug = "velo_numero_1",
-            //        Star = -1,
-            //        UnitPrice = 200,
-            //        UnitsInStock = 100,
-            //        BrandId = brand1.BrandId
-            //    };
-            //    context.Products.Add(product);
-            //    context.SaveChanges();
-
-            //    ProductTag tag1 = new ProductTag()
-            //    {
-            //        ProductId = product.ProductId,
-            //        Value = "electrique"
-            //    };
-            //    context.ProductTags.Add(tag1);
-            //    ProductTag tag2 = new ProductTag()
-            //    {
-            //        ProductId = product.ProductId,
-            //        Value = "roues"
-            //    };
-            //    context.ProductTags.Add(tag2);
-
-            //    context.SaveChanges();
-            //}
         }
     }
 }
