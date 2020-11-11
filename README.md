@@ -20,7 +20,7 @@ WORK IN PROGRESS
 
 ## Local building
 
-- `dotnet run -p build/build.csproj`
+- `dotnet run -p .\eshoponline\eshoponline.csproj`
 
 ## Swagger URL
 
