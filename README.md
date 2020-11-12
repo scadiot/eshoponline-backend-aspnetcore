@@ -17,3 +17,11 @@ WORK IN PROGRESS
  - complete orders controller & tests
  - create wishlist
  - docker support
+
+## Local building
+
+- `dotnet run -p .\eshoponline\eshoponline.csproj`
+
+## Swagger URL
+
+- `http://localhost:5000/`
