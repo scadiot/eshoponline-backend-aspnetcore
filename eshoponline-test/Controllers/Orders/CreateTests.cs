@@ -21,19 +21,8 @@ namespace eshoponline_test.Controllers.Orders
             var product2 = await ProductHelper.CreateRandomProduct(this);
 
             //Add product to cart
-            var cartProductsCreateCommand1 = new eshoponline.Controllers.CartProducts.Create.Command()
-            {
-                ProductId = product1.ProductId,
-                Quantity = 1
-            };
-            await CartProducts.CartProductsHelper.CreateCartProducts(this, currentUserAccessor, cartProductsCreateCommand1);
-
-            var cartProductsCreateCommand2 = new eshoponline.Controllers.CartProducts.Create.Command()
-            {
-                ProductId = product2.ProductId,
-                Quantity = 1
-            };
-            await CartProducts.CartProductsHelper.CreateCartProducts(this, currentUserAccessor, cartProductsCreateCommand2);
+            await CartProducts.CartProductsHelper.CreateCartProducts(this, currentUserAccessor, product1.ProductId, 1);
+            await CartProducts.CartProductsHelper.CreateCartProducts(this, currentUserAccessor, product2.ProductId, 1);
 
             //Create order
             var command = new Create.Command()

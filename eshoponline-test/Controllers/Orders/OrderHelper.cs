@@ -28,12 +28,7 @@ namespace eshoponline_test.Controllers.Orders
         {
             foreach(var productId in productIds)
             {
-                var cartProductsCreateCommand = new eshoponline.Controllers.CartProducts.Create.Command()
-                {
-                    ProductId = productId,
-                    Quantity = 1
-                };
-                await CartProducts.CartProductsHelper.CreateCartProducts(fixture, currentUserAccessor, cartProductsCreateCommand);
+                await CartProducts.CartProductsHelper.CreateCartProducts(fixture, currentUserAccessor, productId, 1);
             }
 
             var command = new Create.Command()

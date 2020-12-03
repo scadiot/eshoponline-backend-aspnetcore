@@ -29,6 +29,7 @@ namespace eshoponline.Infrastructure
         public DbSet<Keyword> Keywords { get; set; }
         public DbSet<Specification> Specifications { get; set; }
         public DbSet<SpecificationGroup> SpecificationGroups { get; set; }
+        public DbSet<WishlistProduct> WishlistProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

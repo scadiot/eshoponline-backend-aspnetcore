@@ -43,6 +43,8 @@ namespace eshoponline.Infrastructure
             CreateMap<eshoponline.Models.Address, eshoponline.Controllers.Orders.OrderAddressDto>();
 
             CreateMap<eshoponline.Models.OrderProduct, eshoponline.Controllers.Orders.OrderProductDto>();
+
+            CreateMap<eshoponline.Models.WishlistProduct, eshoponline.Controllers.WishlistProducts.WishlistProductDto>();
         }
     }
 }
